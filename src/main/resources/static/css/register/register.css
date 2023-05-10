@@ -1,0 +1,80 @@
+body{
+    background-color:#4d289c;
+    margin:0;
+    display: flex;
+    
+}
+.rightdiv{
+    min-width: 480px;
+    width: 50%;
+    height:100%;
+    right:0;
+    position: fixed;
+    background-color:white;
+
+}
+.content{
+    margin-top: 200px;
+    text-align: center;
+}
+.content p{
+    margin-top :20px;
+
+}
+.register_input{
+    width: 300px;
+    height: 35px;
+    margin-top:5px;
+    border: 1px solid rgb(145, 153, 156);
+    border-radius: 6px;
+    padding-left: 10px;
+}
+.button{
+    margin-top: 25px;
+    width: 305px;
+    height: 48px;
+    color: #fff;
+    font-size: 16px;
+    background-color: #6A24FE;
+    border-style: none ;
+    border-radius: 6px;
+}
+.text{
+    margin-top: 15px;
+    margin-bottom: 0;
+    color: rgb(73, 73, 73);
+}
+.leftdiv{
+    left:0;
+    position: fixed;
+    width: 50%;
+    text-align: center;
+    height:100%;
+}
+.leftdiv_center{
+    margin-top:200px;
+}
+.leftdiv_center>img{
+width:60%
+}
+#msgbox{
+    color:red;
+    margin-bottom: 0;
+}
+.register_input.pass{
+border:3px solid rgb(45, 156, 73);
+}
+.register_input.nonpass{
+border:3px solid rgb(214, 0, 0);
+}
+#backimg{
+  position:absolute;
+  top:10px;
+  left: 10px;
+  width: 50px;
+  z-index: 999;
+  filter:opacity(30%);
+}
+#backimg:hover{
+  filter:opacity(50%);
+}

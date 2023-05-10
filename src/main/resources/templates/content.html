@@ -1,0 +1,66 @@
+
+    <div class="content_box" th:fragment="content_box">
+        <div class="center_box">
+            <div class="title_div">
+                <input type="text" id = "openedSheetId" style="display: none;" th:value="${sheetId}">
+                <div class="title">
+                    <span class="title_input" onfocusin="titleFoIn(event)" onfocusout="titleFoOut(event)"  id="title_input" role="textbox" contenteditable th:text="${sheetName}!=null ? ${sheetName}:null "></span>
+
+                    <button class="modify_btn" onclick="modifyBtn(event)" id='modify_btn'>
+                        <img src="/image/index/modify.png" alt="">
+                    </button>
+
+                </div>
+                <button class="plusbtn" id="plusbtn" onclick="openPlus(event)">
+                    <img class="plusimg" src="/image/index/plusimg.png" alt="">
+                </button>
+            </div>
+
+            <div class="create_div" id="create_div">
+                <table class="create_tb">
+                    <thead>
+                    <td>
+                        <div class="create_tb_title">
+                            <p>등록</p>
+                            <button id="cr_xbtn" onclick="closePlus(event)">x</button>
+                        </div>
+                    </td>
+                    </thead>
+                    <tbody>
+                    <td>
+                        <div class="create_content_div">
+                            <p>일(day)과 내용을 입력해주세요</p>
+                            <p><input id="date_info" type="text" placeholder="숫자만 입력가능합니다"></p>
+                            <p><input id="content_info" type="text" placeholder="ex) 전기요금, 가스요금"></p>
+                            <p><input id="submit_btn" type="submit" value="등록" th:onclick="|addPlan(${sheetId})|"></p>
+                            <p id="tip">tip: 31일 이상도 입력가능합니다</p>
+                        </div>
+                    </td>
+                    </tbody>
+                </table>
+            </div>
+            <ul class="main_content" id="maincontent">
+                <li>
+                    <table class="main_content_table" th:each="board : ${boardList}" >
+                        <thead>
+                        <tr>
+                            <td class="date_info" th:text="|${board.getKey()}일|">1 일
+                                <hr>
+                            </td>
+                        </tr>
+                        </thead>
+                        <tbody th:each="list : ${board.getValue()}">
+                        <tr class="content">
+                            <td class="content_info">
+                                <span th:text="${list.getValue()}">가스비</span>
+                                <button class="content_info_xbox" th:onclick = "|delBoard(${list.getKey()},event)|" >X</button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+

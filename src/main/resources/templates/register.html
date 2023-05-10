@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+    <link rel="stylesheet" href="/css/register/register.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</head>
+<body>        
+    <img id = 'backimg' onclick=history.back() src="/image/register/back.png" alt="">
+    <div class="leftdiv">
+        <div class="leftdiv_center">
+            <img src="/image/register/bgwhite.png" alt="">
+        </div>
+
+    </div>
+    <div class="rightdiv">
+        <div class="content">
+            <h1>Hello</h1>
+            <form>
+                <p class="text">아이디</p>
+                <input class='register_input' id="user_id" onchange = 'overlap()' type="text">
+                <p class="text">비밀번호</p>
+                <input class='register_input' id="user_pw" onfocus = 'normal()' type="password">
+                <p class="text">비밀번호확인</p>
+                <input class='register_input' id="user_pw_re" onfocus = 'normal()' type="password">
+                <p class="text">이름</p>
+                <input class='register_input' id="user_name" type="text">
+                <p id="msgbox"></p>
+                <input class='button' type="button" value="회원가입" onclick="submittest()">
+            </form>
+        </div>
+    </div>
+</body>
+<script src='/js/register/register.js'>
+</script>
+</html>

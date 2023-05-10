@@ -81,7 +81,6 @@ public class PageController {
         map.addAttribute("profileImage",profileImage);
         map.addAttribute("boardList",boardList);
 
-
         return "index";
     }
 

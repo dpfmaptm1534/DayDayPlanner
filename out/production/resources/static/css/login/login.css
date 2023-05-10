@@ -49,9 +49,13 @@ body{
     color: #fff;
     font-size: 16px;
     background-color: #6A24FE;
+    transition-duration: 0.4s;
     margin-top: 20px;
 }
-
+#login-form > input[type="button"]:hover{
+    background-color: #420eb6;
+    transition-duration: 0.4s;
+}
 
 #login-form > input[type="checkbox"]{
     display: none;

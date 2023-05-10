@@ -30,11 +30,19 @@ public class PageController {
 
 
     @GetMapping("/")
-    public String index() {
+    public String index(HttpServletRequest httpServletRequest) {
+        HttpSession session = httpServletRequest.getSession();
+        if(session.getAttribute("userId")!=null){
+            return "redirect:/main";
+        }
         return "/login";
     }
     @GetMapping("login")
-    public String login() {
+    public String login(HttpServletRequest httpServletRequest){
+        HttpSession session = httpServletRequest.getSession();
+        if(session.getAttribute("userId")!=null){
+            return "redirect:/main";
+        }
         return "/login";
     }
 

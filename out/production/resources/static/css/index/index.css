@@ -322,6 +322,7 @@ justify-content: center;
   background-color: #4a7c59;
 }
 .drawer img{
+    margin-top:3px;
     width: 30px;
     filter:invert(70%);
 }
@@ -348,6 +349,9 @@ z-index: 999;
 }
 .leftmenu>ul{
     padding-left: 20px;
+    display: flex;
+    flex-direction: row;
+    margin-top: 14px;
 }
 .leftmenu.cl{
     opacity: 0;
@@ -481,7 +485,7 @@ h3{
     75% {color: #65c2f5;}
 }
 #startPlanner{
-  width:200px;
+  width:250px;
   height:40px;
   border-radius: 50px;
   color:white;
@@ -511,4 +515,10 @@ h3{
 .startButton:hover{
     background-color: #5e34d0;
     transition-duration: 0.4s;
+}
+
+/*로고*/
+.logo_img{
+width: 90px;
+    margin:0 20px;
 }

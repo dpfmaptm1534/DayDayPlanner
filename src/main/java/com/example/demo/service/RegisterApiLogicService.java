@@ -29,6 +29,7 @@ public class RegisterApiLogicService extends BaseService<RegisterApiRequest, Reg
                 .userId(body.getUserId())
                 .userPw(body.getUserPw())
                 .userName(body.getUserName())
+                .profileImage("/image/index/defaultProfileImg.jpeg")
                 .build();
         MoneyMember newMoneyMember = baseRepository.save(moneyMember);
         return response(newMoneyMember);

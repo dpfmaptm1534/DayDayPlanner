@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/index/index.css">
+    <title>돈 빠져나가는 날</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+    <nav>
+        <div class="navbar">
+            <ul class="menuItem">
+                <div class="drawer">
+                    <button id="closed_btn" class='closed_btn'>
+                        <img id="closed_drawer" class="closed_drawer" onclick="openDrawer()" src="/image/index/drawer.png" alt="">
+                    </button>
+                </div>
+                <li>
+
+                    <div class="userbox">
+                        <div id="profile_pic">
+                            <img th:src="${profileImage}" alt="" class="profile_img">
+                        </div>
+                        <div>
+                            <p class="user_name"><b th:text="${userName}"></b> 님</p>
+                            <input type="text" id="memberId" th:value="${memberId}">
+                        </div>
+                    </div>
+                    <ul id="dropbar">
+                        <li><a href="#">회원정보</a></li>
+                        <li><a href="logout">로그아웃</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+<div class='bigdiv'>
+    <div id="leftmenu" class='leftmenu'>
+        <ul>
+            <li>
+                <div class="drawer">
+                    <button id='opened_btn' class='opened_btn'>
+                        <img id="opened_drawer" onclick="closeDrawer()" src="/image/index/drawer.png" alt="">
+                    </button>
+                </div>
+            </li>
+        </ul>
+    <div>
+        <button class='sheetbtn' onclick='deepCopy()'>
+
+            <img src="" alt="">+ 새로운 플래너
+        </button>
+    </div>
+<div id = 'sheetdiv'>
+    <ul id='sheetul' >
+        <li class='sheet' th:each="sheet: ${sheetList}" th:classappend="${sheetId==sheet.getId}?'check':''"  th:id="|sheet${sheet.getId}|" >
+                <div class="planner_title" th:text="${sheet.getPlannerTitle().equals('')} ?  '새로운 플래너' : ${sheet.getPlannerTitle()} " th:onclick="|openPlanner(${sheet.getId})|">
+                    고정지출
+                </div>
+                <div class="remove_planner_div" th:onclick="|removeSheet(${sheet.getId()})|">
+                    <button class="remove_planner">x</button>
+                </div>
+        </li>
+    <li class='sheet hide'>
+        <div class="planner_title">
+            
+        </div>
+        <div class="remove_planner_div">
+            <button class="remove_planner">x</button>
+        </div>
+    </li>
+    </ul>
+</div>
+    </div>
+    <div id=dark onclick="dark()"></div>
+    <div class="content_box" th:replace="content :: content_box">
+
+    </div>
+</div>
+
+
+
+</body>
+
+<script src="/js/index/index.js">
+</script>
+
+</html>

@@ -35,7 +35,7 @@ public class PageController {
         if(session.getAttribute("userId")!=null){
             return "redirect:/main";
         }
-        return "/login";
+        return "login";
     }
     @GetMapping("login")
     public String login(HttpServletRequest httpServletRequest){
@@ -43,12 +43,12 @@ public class PageController {
         if(session.getAttribute("userId")!=null){
             return "redirect:/main";
         }
-        return "/login";
+        return "login";
     }
 
     @GetMapping("regist")
     public String register() {
-        return "/register";
+        return "register";
     }
 
     @GetMapping("main")

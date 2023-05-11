@@ -13,6 +13,6 @@ spring:
     base-path: /api
     detection-strategy: annotated
 server:
-  port: 8080
+  port: 7080
 
 

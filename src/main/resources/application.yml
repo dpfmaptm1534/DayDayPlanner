@@ -1,9 +1,9 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/aidev
+    url: jdbc:mysql://13.124.130.62:3306/watcha1234?serverTimezone=Asia/Seoul
     username: root
-    password: 83140201
+    password: watcha1234
   jpa:
     show-sql: true
     properties:
@@ -13,6 +13,6 @@ spring:
     base-path: /api
     detection-strategy: annotated
 server:
-  port: 8080
+  port: 7080
 
 

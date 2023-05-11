@@ -147,6 +147,7 @@ td {
 }
 
 .content_info {
+  word-break: break-all;
   color: white;
   font-size: 30px;
   padding-top: 5px;

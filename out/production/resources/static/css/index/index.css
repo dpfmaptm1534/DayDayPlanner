@@ -183,12 +183,13 @@ td {
 }
 
 .plusbtn {
-  width: 55px;
+  width: 50px;
+    padding: 0;
   background-color: rgba(0, 0, 0, 0);
   border: 0;
 }
 .plusbtn.down {
-    width: 55px;
+    width: 50px;
     background-color: rgba(0, 0, 0, 0);
     position: fixed;
     z-index: 888;
@@ -727,13 +728,14 @@ width: 90px;
     }
 
     .plusbtn {
-        width: 55px;
+        width: 50px;
+        padding:0;
         background-color: rgba(0, 0, 0, 0);
         border: 0;
 
     }
     .plusbtn.down {
-        width: 55px;
+        width: 50px;
         background-color: rgba(0, 0, 0, 0);
         position: fixed;
         z-index: 888;

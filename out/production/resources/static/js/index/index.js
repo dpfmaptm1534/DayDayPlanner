@@ -72,7 +72,6 @@
     }
 
     //플래너삭제
-    let checkedSheet;
     document.addEventListener('click', function (e) {
         if (e.target.classList.value == 'remove_planner') {
                     $.ajax({
@@ -86,11 +85,18 @@
                                 $('.content_box').children().remove();
                                 $('.content_box').html(result);
                             }else {
-                                checkedSheet
-                                e.target.parentElement.parentElement.nextElementSibling.classList.add('check');
-                                checkedSheet=e.target.parentElement.parentElement.nextElementSibling.classList;
-                                e.target.parentElement.parentElement.nextElementSibling.firstElementChild.click();
-                                e.target.parentElement.parentElement.remove();
+                                if(e.target.parentElement.parentElement.nextElementSibling.classList.value=='sheet hide'){
+                                    document.getElementsByClassName('check').item(0).classList.remove('check')
+                                    e.target.parentElement.parentElement.previousElementSibling.classList.add('check');
+                                    e.target.parentElement.parentElement.previousElementSibling.firstElementChild.click();
+                                    e.target.parentElement.parentElement.remove();
+                                }else{
+                                    document.getElementsByClassName('check').item(0).classList.remove('check')
+                                    e.target.parentElement.parentElement.nextElementSibling.classList.add('check');
+                                    e.target.parentElement.parentElement.nextElementSibling.firstElementChild.click();
+                                    e.target.parentElement.parentElement.remove();
+                                }
+
                             }
 
                         }}

@@ -873,11 +873,13 @@ width: 90px;
     #date_info {
         width: 98.5%;
         height: 35px;
+        font-size: 23px;
     }
 
     #content_info {
         width: 98.5%;
         height: 35px;
+        font-size: 23px;
     }
 
     #submit_btn {

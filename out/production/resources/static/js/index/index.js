@@ -105,7 +105,6 @@
         }
     })
     function removeSheet(sheetId){
-        console.log('hi')
         $.ajax({
             type : 'DELETE',           // 타입 (get, post, put 등등)
             url : '/main/deleteSheet',           // 요청할 서버url
@@ -133,6 +132,7 @@
         }
     })
     function openPlanner(sheetId){
+        console.log(sessionStorage.getItem('userId'))
         $.ajax({
             type : 'GET',           // 타입 (get, post, put 등등)
             url : '/main/'+sheetId,           // 요청할 서버url

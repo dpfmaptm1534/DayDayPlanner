@@ -303,7 +303,7 @@ td {
     padding-top: 5px;
   height: auto;
   border: none;
-  font-size: 45px;
+  font-size: 35px;
   color: white;
   background-color: rgba(0, 0, 0, 0);
 }
@@ -851,7 +851,7 @@ width: 90px;
         padding-top: 5px;
         height: auto;
         border: none;
-        font-size: 45px;
+        font-size: 35px;
         color: white;
         background-color: rgba(0, 0, 0, 0);
     }

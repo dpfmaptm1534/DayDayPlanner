@@ -191,7 +191,8 @@
             }),
             success : function(result) { // 결과 성공 콜백함수
                 //반드시 href 뒤의 따옴표 안 영역의 id는 앞에 한 칸 띄워야 한다.
-                $("#maincontent").load(window.location.href + " #maincontent");
+                // $("#maincontent").load(window.location.href + " #maincontent");
+                openPlanner(sheetId)
                 plusbtn.classList.remove('open')
                 create_div.style.display = 'none';
                 ckeck = false;

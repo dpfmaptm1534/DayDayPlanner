@@ -35,6 +35,7 @@
         text-align: center;
     }
     #login-form > input{
+        font-size: 20px;
         width: 100%;
         height: 48px;
         padding: 0 10px;
@@ -129,7 +130,7 @@
         }
 
         .doc_main{
-            margin-top: 80px;
+            margin-top: 10px;
             display: flex;
             justify-content: center;
         }
@@ -153,6 +154,7 @@
             text-align: center;
         }
         #login-form > input{
+            font-size: 20px;
             width: 100%;
             height: 48px;
             padding: 0 10px;
@@ -274,6 +276,7 @@
         text-align: center;
     }
     #login-form > input{
+        font-size:20px;
         width: 100%;
         height: 48px;
         padding: 0 10px;

@@ -198,7 +198,7 @@ td {
 }
 
 .plusimg {
-  width: 55px;
+  width: 45px;
 }
 
 .plusimg:hover {
@@ -543,7 +543,7 @@ width: 90px;
 
 
 
-@media(max-width:400px){
+@media(max-width:500px){
     body {
     min-width: 320px;
     margin: 0;
@@ -743,7 +743,7 @@ width: 90px;
 
     }
     .plusimg {
-        width: 50px;
+        width: 45px;
     }
 
     .plusimg:hover {

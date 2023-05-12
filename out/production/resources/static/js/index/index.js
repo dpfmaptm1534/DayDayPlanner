@@ -268,4 +268,13 @@
     }
 
 
+    //스크롤시 플러스버튼 이동
+    $(window).scroll(function() {
+        if(scrollY>60){
+            $('#plusbtn').addClass('down');
+        } else {
+            $('#plusbtn').removeClass('down');
+        }
+    });
+
 

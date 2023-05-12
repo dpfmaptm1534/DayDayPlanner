@@ -5,7 +5,7 @@ body{
     
 }
 .rightdiv{
-    min-width: 480px;
+    min-width: 320px;
     width: 50%;
     height:100%;
     right:0;
@@ -14,7 +14,7 @@ body{
 
 }
 .content{
-    margin-top: 200px;
+    margin-top: 20%;
     text-align: center;
 }
 .content p{

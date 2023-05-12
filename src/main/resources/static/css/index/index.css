@@ -322,13 +322,17 @@ justify-content: center;
 
 }
 #date_info {
-  width: 98.5%;
-  height: 35px;
+    width: 100%;
+    box-sizing: border-box;
+    height: 35px;
+    font-size: 23px;
 }
 
 #content_info {
-  width: 98.5%;
-  height: 35px;
+    width: 100%;
+    box-sizing: border-box;
+    height: 35px;
+    font-size: 23px;
 }
 
 #submit_btn {

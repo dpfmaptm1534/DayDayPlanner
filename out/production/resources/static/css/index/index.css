@@ -183,13 +183,13 @@ td {
 }
 
 .plusbtn {
-  width: 50px;
+
     padding: 0;
   background-color: rgba(0, 0, 0, 0);
   border: 0;
 }
 .plusbtn.down {
-    width: 50px;
+
     background-color: rgba(0, 0, 0, 0);
     position: fixed;
     z-index: 888;
@@ -200,10 +200,11 @@ td {
 
 .plusimg {
   width: 45px;
+    filter: brightness(90%);
 }
 
 .plusimg:hover {
-  filter: brightness(110%);
+  filter: brightness(120%);
 }
 
 .title_div {
@@ -728,14 +729,15 @@ width: 90px;
     }
 
     .plusbtn {
-        width: 50px;
+
+
         padding:0;
         background-color: rgba(0, 0, 0, 0);
         border: 0;
 
     }
     .plusbtn.down {
-        width: 50px;
+
         background-color: rgba(0, 0, 0, 0);
         position: fixed;
         z-index: 888;
@@ -746,10 +748,11 @@ width: 90px;
     }
     .plusimg {
         width: 45px;
+        filter: brightness(90%);
     }
 
     .plusimg:hover {
-        filter: brightness(110%);
+        filter: brightness(120%);
     }
 
     .title_div {

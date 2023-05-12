@@ -304,6 +304,7 @@ td {
   height: auto;
   border: none;
   font-size: 35px;
+    font-weight: 900;
   color: white;
   background-color: rgba(0, 0, 0, 0);
 }
@@ -852,6 +853,7 @@ width: 90px;
         height: auto;
         border: none;
         font-size: 35px;
+        font-weight: 900;
         color: white;
         background-color: rgba(0, 0, 0, 0);
     }

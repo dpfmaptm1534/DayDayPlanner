@@ -10,7 +10,7 @@ nav {
   height: 67px;
   margin: 0;
   background-color: #37465B;
-    position:static
+    position:fixed;
 }
 
 li {
@@ -303,6 +303,7 @@ width: 100%;
 position:static;
 display: flex;
 justify-content: center;
+    margin-top:35px;
 
 }
 #date_info {

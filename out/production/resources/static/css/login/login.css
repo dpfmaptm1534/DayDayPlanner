@@ -4,6 +4,10 @@
         margin: 0;
         border: none;
     }
+
+    input:-webkit-autofill {
+        background-color: #4a7c59;
+    }
     body{
         font-size: 14px;
         font-family: 'Roboto', sans-serif;

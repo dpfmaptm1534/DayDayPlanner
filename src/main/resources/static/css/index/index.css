@@ -198,7 +198,7 @@ td {
 }
 
 .plusimg {
-  width: 100%;
+  width: 55px;
 }
 
 .plusimg:hover {
@@ -743,7 +743,7 @@ width: 90px;
 
     }
     .plusimg {
-        width: 100%;
+        width: 50px;
     }
 
     .plusimg:hover {
@@ -1083,4 +1083,7 @@ width: 90px;
     .logo_img{
         width: 90px;
         margin:0 10px;
-    }}
+    }
+
+
+}

@@ -72,29 +72,30 @@
     }
 
     //플래너삭제
+    let checkedSheet;
     document.addEventListener('click', function (e) {
         if (e.target.classList.value == 'remove_planner') {
-            if(e.target.parentElement.parentElement.classList.value=='sheet check'){
-                if(document.getElementById('sheetul').childElementCount<=2){
-                    e.target.parentElement.parentElement.remove();
                     $.ajax({
                         type : 'GET',           // 타입 (get, post, put 등등)
                         url : '/main/default',           // 요청할 서버url
-                        async:true,
+                        async : true,
                         dataType : "HTML",
                         success : function(result) { // 결과 성공 콜백함수
-                            $('.content_box').children().remove();
-                            $('.content_box').html(result);
+                            if(document.getElementById('sheetul').childElementCount<=2){
+                                e.target.parentElement.parentElement.remove();
+                                $('.content_box').children().remove();
+                                $('.content_box').html(result);
+                            }else {
+                                checkedSheet
+                                e.target.parentElement.parentElement.nextElementSibling.classList.add('check');
+                                checkedSheet=e.target.parentElement.parentElement.nextElementSibling.classList;
+                                e.target.parentElement.parentElement.nextElementSibling.firstElementChild.click();
+                                e.target.parentElement.parentElement.remove();
+                            }
+
                         }}
                     )
-                }else {
-                    if (e.target.parentElement.parentElement.nextElementSibling.classList.value == 'sheet') {
-                        e.target.parentElement.parentElement.nextElementSibling.classList.add('check');
-                        e.target.parentElement.parentElement.nextElementSibling.firstElementChild.click();
-                        e.target.parentElement.parentElement.remove();
-                    }
-                }
-            }
+
         }
     })
     function removeSheet(sheetId){

@@ -481,6 +481,9 @@ margin:0;
 #memberId{
     display: none;
 }
+#accessToken{
+    display: none;
+}
 .planner_title{
     width:190px;
     overflow: hidden;
@@ -1032,6 +1035,9 @@ width: 90px;
         display: none;
     }
     #memberId{
+        display: none;
+    }
+    #accessToken{
         display: none;
     }
     .planner_title{

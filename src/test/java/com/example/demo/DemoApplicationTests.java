@@ -33,13 +33,7 @@ class DemoApplicationTests {
 
         System.out.println(lists);
     }
-    @Test
-    public void boardlist(){
-        Long sheetId = 1L;
-        List<MoneyBoard> lists = moneyBoardRepository.findAllBySheetId(sheetId);
 
-        System.out.println(lists);
-    }
     @Test
     public void api(){
         List<Sheet> list = sheetApiLogicService.list(1L);

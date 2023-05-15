@@ -132,7 +132,6 @@
         }
     })
     function openPlanner(sheetId){
-        console.log(sessionStorage.getItem('userId'))
         $.ajax({
             type : 'GET',           // 타입 (get, post, put 등등)
             url : '/main/'+sheetId,           // 요청할 서버url
@@ -283,5 +282,5 @@
             $('#plusbtn').removeClass('down');
         }
     });
-
+console.log(document.getElementById('accessToken').value);
 

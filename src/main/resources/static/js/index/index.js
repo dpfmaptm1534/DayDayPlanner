@@ -282,5 +282,5 @@
             $('#plusbtn').removeClass('down');
         }
     });
-
+console.log(document.getElementById('accessToken').value);
 

@@ -47,7 +47,7 @@ public class SheetApiLogicService {
 
 
     public List list(Long memberId){
-        System.out.println("memberId: "+ memberId);
+        // System.out.println("memberId: "+ memberId);
         List<Sheet> lists = sheetRepository.findAllByMemberIdOrderByIdDesc(memberId);
     return lists;
     }
@@ -62,7 +62,7 @@ public class SheetApiLogicService {
         return response(newSheet);
     }
     public String deleteSheet(SheetApiRequest request){
-        System.out.println("deleteSheet() servicelogic start");
+        // System.out.println("deleteSheet() servicelogic start");
         Optional<Sheet> optSheet = sheetRepository.findById(request.getId());
         if(optSheet.isPresent()){
             Sheet board = optSheet.get();

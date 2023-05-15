@@ -322,13 +322,17 @@ justify-content: center;
 
 }
 #date_info {
-  width: 98.5%;
-  height: 35px;
+    width: 100%;
+    box-sizing: border-box;
+    height: 35px;
+    font-size: 23px;
 }
 
 #content_info {
-  width: 98.5%;
-  height: 35px;
+    width: 100%;
+    box-sizing: border-box;
+    height: 35px;
+    font-size: 23px;
 }
 
 #submit_btn {
@@ -475,6 +479,9 @@ margin:0;
     display: none;
 }
 #memberId{
+    display: none;
+}
+#accessToken{
     display: none;
 }
 .planner_title{
@@ -871,13 +878,17 @@ width: 90px;
 
     }
     #date_info {
-        width: 98.5%;
+        width: 100%;
+        box-sizing: border-box;
         height: 35px;
+        font-size: 23px;
     }
 
     #content_info {
-        width: 98.5%;
+        width: 100%;
+        box-sizing: border-box;
         height: 35px;
+        font-size: 23px;
     }
 
     #submit_btn {
@@ -1024,6 +1035,9 @@ width: 90px;
         display: none;
     }
     #memberId{
+        display: none;
+    }
+    #accessToken{
         display: none;
     }
     .planner_title{

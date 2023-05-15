@@ -79,7 +79,7 @@ public class BoardApiLogicService {
         return response(newBoard);
     }
     public String deleteBoard(BoardApiRequest request){
-        System.out.println("deleteBoard() servicelogic start");
+        // System.out.println("deleteBoard() servicelogic start");
         Optional<MoneyBoard> optBoard = moneyBoardRepository.findById(request.getId());
         if(optBoard.isPresent()){
             MoneyBoard board = optBoard.get();

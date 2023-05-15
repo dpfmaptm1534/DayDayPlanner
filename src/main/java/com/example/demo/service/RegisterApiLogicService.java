@@ -51,7 +51,7 @@ public class RegisterApiLogicService extends BaseService<RegisterApiRequest, Reg
     }
 
     public Header<RegisterApiResponse> searchid(String userid){
-        System.out.println("서비스단 userid:"+userid);
+        // System.out.println("서비스단 userid:"+userid);
         return moneyMemberRepository.findByUserId(userid)
                 .map(item -> response(item))
                 .orElseGet(()->Header.ERROR("데이터 없음"));

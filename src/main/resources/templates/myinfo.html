@@ -1,0 +1,40 @@
+
+
+        <div class="center_box" th:fragment="content_box">
+                <div>
+                    <div>
+                        <h2 class = "comph2">회원정보</h2>
+                        <div class = "compdiv">
+                            <div class = "left_info">
+                                <div>
+                                    <label for="userInfo_userId" class="block whitefont bmargin"> 아이디 </label>
+                                    <input type="text" class="info_input whitefont" id="userInfo_userId" th:value="${userId}" disabled>
+                                </div>
+                                <div>
+                                    <label for="userInfo_userName" class="block whitefont bmargin">이름</label>
+                                    <input type="text" onfocusin="addClassOnSave()" class="info_input whitefont" id="userInfo_userName" th:value="${userName}" th:disabled="${loginType == 'kakao'} ? 'disabled'">
+                                </div>
+                                <div>
+                                    <label for="changePW" class="block whitefont bmargin">비밀번호</label>
+                                    <input type="button" class="info_input whitefont" id="changePW" value="비밀번호 변경" th:disabled="${loginType == 'kakao'} ? 'disabled'">
+                                </div>
+
+                            </div>
+                            <div class=" right_info">
+                                <div>
+                                    <span class="userInfo_ImgText" >
+                                        변 경
+                                    </span>
+                                    <img id="userInfo_profileImage" th:src="${profileImage}" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="savr_hr">
+                        <div class="save_div">
+                            <input type="button" class="saveBtn" value="저장" onclick="modifyInfo()" disabled>
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+

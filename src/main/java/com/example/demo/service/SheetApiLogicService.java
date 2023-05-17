@@ -40,9 +40,13 @@ public class SheetApiLogicService {
 
     public Header<SheetApiResponse> update(SheetApiRequest request) {
         Optional<MoneyMember> member = moneyMemberRepository.findById(request.getMemberId());
-        Sheet sheet = sheetRepository.findById(request.getId()).get();
-        sheet.setPlannerTitle(request.getPlannerTitle());
-        return response(sheetRepository.save(sheet));
+        Optional<Sheet> sheet = sheetRepository.findById(request.getId());
+        Sheet newSheet = null;
+        if(sheet.get().getMember()==member.get()){
+            newSheet = sheetRepository.findById(request.getId()).get();
+            newSheet.setPlannerTitle(request.getPlannerTitle());
+        }
+        return response(sheetRepository.save(newSheet));
     }
 
 

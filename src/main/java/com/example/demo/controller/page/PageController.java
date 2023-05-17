@@ -171,7 +171,7 @@ public class PageController {
         HttpSession session = request.getSession();
         String accessToken = (String)session.getAttribute("accessToken");
         System.out.println("accessToken : " + accessToken);
-        if(!accessToken.isEmpty()){
+        if(accessToken!=null){
             System.out.println("비어있지않아요 카카오로그아웃할게요");
             String reqURL = "https://kapi.kakao.com/v1/user/logout";
             try {
@@ -192,6 +192,7 @@ public class PageController {
                     result += line;
                 }
                 System.out.println(result);
+
             } catch (IOException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
@@ -200,6 +201,32 @@ public class PageController {
         session.invalidate();
         return "redirect:/login";
     }
+
+    @GetMapping("myinfo")
+    public String myinfo(HttpServletRequest request, ModelMap map){
+        HttpSession session = request.getSession();
+        if(session.getAttribute("userId")==null){
+            return "redirect:/login";
+        }
+        String accessToken = (String)session.getAttribute("accessToken");
+        String loginType;
+        if(accessToken!=null){
+            loginType="kakao";
+        }else{
+            loginType="origin";
+        }
+
+        String profileImage = (String)session.getAttribute("profileImage");
+        String userId = (String)session.getAttribute("userId");
+        String userName = (String)session.getAttribute("userName");
+
+        map.addAttribute("loginType",loginType);
+        map.addAttribute("profileImage",profileImage);
+        map.addAttribute("userId",userId);
+        map.addAttribute("userName",userName);
+    return "myinfo";
+    }
+
 
 
 }

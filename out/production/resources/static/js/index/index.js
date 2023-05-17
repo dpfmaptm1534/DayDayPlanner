@@ -282,5 +282,57 @@
             $('#plusbtn').removeClass('down');
         }
     });
-console.log(document.getElementById('accessToken').value);
 
+
+    //회원정보로이동
+    function openMyinfo(){
+        $.ajax({
+            type : 'GET',           // 타입 (get, post, put 등등)
+            url : '/myinfo',           // 요청할 서버url
+            async:true,
+            dataType : "HTML",
+            success : function(result) { // 결과 성공 콜백함수
+                $('.content_box').children().remove();
+                $('.content_box').html(result);
+            }}
+        )
+    }
+
+    //회원정보수정버튼활성화
+    let user_name = $('.user_name>b').text();
+    function addClassOnSave(){
+        $('#userInfo_userName').keyup(function(){
+            if(user_name!=$('#userInfo_userName').val()){
+                $('.saveBtn').addClass('able').attr("disabled",false);
+            }else{
+                $('.saveBtn').removeClass('able').attr("disabled",true);
+            }
+        })
+    }
+
+    //회원정보수정
+    function modifyInfo(){
+        const mo_username = $('#userInfo_userName');
+        const nav_username = $('.user_name>b');
+
+        $.ajax({
+            type : 'PUT',           // 타입 (get, post, put 등등)
+            url : '/member/name',           // 요청할 서버url
+            dataType : "json",
+            contentType:"application/json",
+            data : JSON.stringify({
+                id:memberId.value,
+                userName:mo_username.val()
+            }),
+            success : function(result) { // 결과 성공 콜백함수
+                console.log(result);
+                console.log('성공')
+                nav_username.text(mo_username.val());
+                user_name = mo_username.val();
+                alert('저장완료');
+                $('.saveBtn').removeClass('able').attr("disabled",true);
+
+            }
+        })
+
+    }

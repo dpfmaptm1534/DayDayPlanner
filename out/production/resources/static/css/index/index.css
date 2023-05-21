@@ -571,6 +571,9 @@ width: 90px;
     font-size: 20px;
     box-sizing: border-box;
 }
+.left_info{
+    width: 100%;
+}
 .left_info> div{
     margin:25px 0;
 }
@@ -652,9 +655,56 @@ margin-top:15px;
     background-color: #375ede;
 }
 
+.profilePopupDiv{
+    z-index: 999;
+    width: 230px;
+    margin-top: 10px;
+    display: none;
+    position: absolute;
+}.profilePopupDiv.clicked{
+     display: block;
+ }
+.profilePopupUl{
+    padding: 5px 0;
+    background-color: #77d0ff;
+    border-radius: 10px;
+}
+.profilePopupLi{
+    list-style: none;
+    padding: 10px;
+    font-size: 25px;
+    display: flex;
+    color: #02365d;
+    text-align: center;
+    justify-content: center;
+    font-weight: 500;
+}
+.profilePopupLi:hover{
+    background-color: #09b1ec;
+}
+.profilePopupLi span{
+    font-size: 25px;
+    color: white;
+    margin-left: 8px;
+}
+.profilePopupLi_img{
+    border-radius: 100%;
+    width: 30px;
+    height: 30px;
+}
+.profilePopupLi.set{
+    background-color: #0062a8;
+}
 
-
-
+.right_info_div.open::before{
+    content: '';
+    position: fixed;
+    z-index: 888;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
 
 
 
@@ -1224,7 +1274,7 @@ margin-top:15px;
     }
     .info_input{
         color:white;
-        width: 400px;
+        width: 100%;
         height: 40px;
         border-radius: 10px;
         background-color: RGBA(0,0,0,0);
@@ -1234,20 +1284,17 @@ margin-top:15px;
     .whitefont{
         color:white;
     }
-    .info_input{
-        color:white;
-        width: 400px;
-        height: 40px;
-        border-radius: 10px;
-        background-color: RGBA(0,0,0,0);
-        font-size: 20px;
-        box-sizing: border-box;
+    .left_info{
+        width: 90%;
+
     }
     .left_info> div{
         margin:25px 0;
+        width:100%;
     }
     .bmargin{
         margin-bottom: 5px;
+        padding-left:3px;
     }
     .title_div>div{
         display: flex;
@@ -1291,7 +1338,7 @@ margin-top:15px;
         margin: 25px 0;
     }
     .savr_hr{
-        max-width: 400px;
+        max-width: 90%;
         margin-top: 5px;
         margin-bottom: 0;
         border-width: 1px 0 0 0;

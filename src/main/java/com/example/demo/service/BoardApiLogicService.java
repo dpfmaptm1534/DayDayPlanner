@@ -59,22 +59,23 @@ public class BoardApiLogicService {
 
 //      방법 1. detached entity passed to persist 에러발생시
 //      MoneyBoard엔티티에 cascade = CascadeType.ALL 제거해야함
-//        Sheet sheet = Sheet.builder()
-//                .id(request.getSheetId())
-//                .build();
-//        MoneyMember member = MoneyMember.builder()
-//                .id(request.getMemberId())
-//                .build();
-//        moneyBoard.setSheet(sheet);
-//        moneyBoard.setMember(member);
-
+        Sheet sheet = Sheet.builder()
+                .id(request.getSheetId())
+                .build();
+        MoneyMember member = MoneyMember.builder()
+                .id(request.getMemberId())
+                .build();
+        moneyBoard.setSheet(sheet);
+        moneyBoard.setMember(member);
 
 //      방법 2. cascade = CascadeType.ALL 제거안해도 에러안남
-        Optional<Sheet> sheet = sheetRepository.findById(request.getSheetId());
-        Optional<MoneyMember> member = moneyMemberRepository.findById(request.getMemberId());
-        moneyBoard.setSheet(sheet.get());
-        moneyBoard.setMember(member.get());
+//        Optional<Sheet> sheet = sheetRepository.findById(request.getSheetId());
+//        Optional<MoneyMember> member = moneyMemberRepository.findById(request.getMemberId());
+//        moneyBoard.setSheet(sheet.get());
+//        moneyBoard.setMember(member.get());
 
+
+//      공통
         MoneyBoard newBoard = moneyBoardRepository.save(moneyBoard);
         return response(newBoard);
     }

@@ -52,6 +52,7 @@
             data : JSON.stringify({
                 memberId:memberId.value
             }),
+            async:false,
             success : function(result) { // 결과 성공 콜백함수
                 try{
                     document.getElementsByClassName('check').item(0).classList.remove('check');
@@ -77,8 +78,8 @@
                     $.ajax({
                         type : 'GET',           // 타입 (get, post, put 등등)
                         url : '/main/default',           // 요청할 서버url
-                        async : true,
                         dataType : "HTML",
+                        async:false,
                         success : function(result) { // 결과 성공 콜백함수
                             if(document.getElementById('sheetul').childElementCount<=2){
                                 e.target.parentElement.parentElement.remove();
@@ -110,6 +111,7 @@
             url : '/main/deleteSheet',           // 요청할 서버url
             dataType : "json",
             contentType:"application/json",
+            async:false,
             data : JSON.stringify({
                 id:sheetId
             }),
@@ -135,7 +137,7 @@
         $.ajax({
             type : 'GET',           // 타입 (get, post, put 등등)
             url : '/main/'+sheetId,           // 요청할 서버url
-            async:true,
+            async:false,
             dataType : "HTML",
             success : function(result) { // 결과 성공 콜백함수
                 $('.content_box').children().remove();
@@ -207,7 +209,6 @@
 
             }}
         )
-
     }
 
 
@@ -252,6 +253,7 @@
                 url : '/main',           // 요청할 서버url
                 dataType : "json",
                 contentType:"application/json",
+                async:false,
                 data : JSON.stringify({
                     id:openedSheetId.value,
                     memberId:memberId.value,
@@ -289,7 +291,7 @@
         $.ajax({
             type : 'GET',           // 타입 (get, post, put 등등)
             url : '/myinfo',           // 요청할 서버url
-            async:true,
+            async:false,
             dataType : "HTML",
             success : function(result) { // 결과 성공 콜백함수
                 $('.content_box').children().remove();
@@ -319,6 +321,7 @@
             type : 'PUT',           // 타입 (get, post, put 등등)
             url : '/member/name',           // 요청할 서버url
             dataType : "json",
+            async:false,
             contentType:"application/json",
             data : JSON.stringify({
                 id:memberId.value,
@@ -334,5 +337,21 @@
 
             }
         })
+
+    }
+
+    function openProfileChange(){
+        if($('#accessToken').val()==''){
+            $('.profilePopupDiv').addClass('clicked')
+            $('.right_info_div').addClass('open')
+            document.addEventListener('click',function(e){
+                if(e.target.classList.value=='right_info_div open'){
+                    $('.right_info_div.open').removeClass('open')
+                    $('.profilePopupDiv').removeClass('clicked')
+                };
+            })
+        }else{
+            alert('카카오계정은 변경이 불가능합니다')
+        }
 
     }

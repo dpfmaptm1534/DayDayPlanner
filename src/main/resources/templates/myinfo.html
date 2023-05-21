@@ -20,9 +20,18 @@
                                 </div>
 
                             </div>
-                            <div class=" right_info">
-                                <div>
-                                    <span class="userInfo_ImgText" >
+                            <div class="right_info">
+                                <div class="right_info_div">
+                                    <div class="profilePopupDiv">
+                                        <ul class="profilePopupUl">
+                                            <li th:attr="class=${profileImage=='/image/index/defaultProfileImg.jpeg' ? 'profilePopupLi set' : 'profilePopupLi'}">
+                                                <img  src="/image/index/defaultProfileImg.jpeg" class="profilePopupLi_img" alt=""> <span>기본프로필</span></li>
+                                            <li class="profilePopupLi"><img class="profilePopupLi_img" src="/image/index/defaultProfileImg.jpeg" alt=""> <span>나의프로필</span></li>
+                                            <hr>
+                                            <li class="profilePopupLi">사진업로드</li>
+                                        </ul>
+                                    </div>
+                                    <span class="userInfo_ImgText" onclick="openProfileChange()">
                                         변 경
                                     </span>
                                     <img id="userInfo_profileImage" th:src="${profileImage}" alt="">

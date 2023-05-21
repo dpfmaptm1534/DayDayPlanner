@@ -226,7 +226,30 @@ public class PageController {
         map.addAttribute("userName",userName);
     return "myinfo";
     }
+    @GetMapping("myinfo/pwchange")
+    public String pwchange(HttpServletRequest request, ModelMap map){
+        HttpSession session = request.getSession();
+        if(session.getAttribute("userId")==null){
+            return "redirect:/login";
+        }
+        String accessToken = (String)session.getAttribute("accessToken");
+        String loginType;
+        if(accessToken!=null){
+            loginType="kakao";
+        }else{
+            loginType="origin";
+        }
 
+        String profileImage = (String)session.getAttribute("profileImage");
+        String userId = (String)session.getAttribute("userId");
+        String userName = (String)session.getAttribute("userName");
+
+        map.addAttribute("loginType",loginType);
+        map.addAttribute("profileImage",profileImage);
+        map.addAttribute("userId",userId);
+        map.addAttribute("userName",userName);
+        return "pwchange";
+    }
 
 
 }

@@ -340,6 +340,7 @@
 
     }
 
+    //프롭필 변경버튼 눌렀을씨 모달띄우기
     function openProfileChange(){
         if($('#accessToken').val()==''){
             $('.profilePopupDiv').addClass('clicked')
@@ -354,4 +355,18 @@
             alert('카카오계정은 변경이 불가능합니다')
         }
 
+    }
+
+    //비밀번호변경페이지로 이동
+    function openpwchange(){
+        $.ajax({
+            type : 'GET',           // 타입 (get, post, put 등등)
+            url : '/myinfo/pwchange',           // 요청할 서버url
+            async:false,
+            dataType : "HTML",
+            success : function(result) { // 결과 성공 콜백함수
+                $('.content_box').children().remove();
+                $('.content_box').html(result);
+            }}
+        )
     }

@@ -16,7 +16,7 @@
                                 </div>
                                 <div>
                                     <label for="changePW" class="block whitefont bmargin">비밀번호</label>
-                                    <input type="button" class="info_input whitefont" id="changePW" value="비밀번호 변경" th:disabled="${loginType == 'kakao'} ? 'disabled'">
+                                    <input type="button" class="info_input whitefont" id="changePW" value="비밀번호 변경" onclick=openpwchange() th:disabled="${loginType == 'kakao'} ? 'disabled'">
                                 </div>
 
                             </div>

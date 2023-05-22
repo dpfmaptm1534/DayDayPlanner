@@ -9,10 +9,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 @Builder
-public class MemberApiRequest {
+public class PasswordApiRequest {
     private Long id;
-//    private String userId;
-//    private String userPw;
-    private String userName;
-//    private String profileImage;
+    private String oldPw;
+    private String newPw;
 }

@@ -79,6 +79,7 @@ public class PageController {
         //카카오아디디로 이미 회원가입한 기록이있을경우
         if(userInfo.get("userId")!=null){
             session.setAttribute("accessToken",tk);
+            session.setAttribute("loginType","kakao");
             session.setAttribute("memberId",userInfo.get("memberId"));
             session.setAttribute("userId",userInfo.get("userId"));
             session.setAttribute("userName",userInfo.get("userName"));
@@ -119,7 +120,7 @@ public class PageController {
         }catch(IndexOutOfBoundsException e){
             sheetName=null;
         }
-
+        System.out.println("토큰"+accessToken);
         map.addAttribute("sheetName",sheetName);
         map.addAttribute("sheetId",sheetId);
         map.addAttribute("sheetList",list);
@@ -209,13 +210,7 @@ public class PageController {
             return "redirect:/login";
         }
         String accessToken = (String)session.getAttribute("accessToken");
-        String loginType;
-        if(accessToken!=null){
-            loginType="kakao";
-        }else{
-            loginType="origin";
-        }
-
+        String loginType = (String)session.getAttribute("loginType");
         String profileImage = (String)session.getAttribute("profileImage");
         String userId = (String)session.getAttribute("userId");
         String userName = (String)session.getAttribute("userName");
@@ -233,13 +228,7 @@ public class PageController {
             return "redirect:/login";
         }
         String accessToken = (String)session.getAttribute("accessToken");
-        String loginType;
-        if(accessToken!=null){
-            loginType="kakao";
-        }else{
-            loginType="origin";
-        }
-
+        String loginType = (String)session.getAttribute("loginType");
         String profileImage = (String)session.getAttribute("profileImage");
         String userId = (String)session.getAttribute("userId");
         String userName = (String)session.getAttribute("userName");

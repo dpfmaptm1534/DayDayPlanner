@@ -2,26 +2,26 @@
 <div class="center_box" th:fragment="content_box">
     <div>
         <div>
-            <h2 class = "comph2">비밀번호변경</h2>
+            <img id = 'backimg' onclick=openMyinfo() src="/image/register/back.png" alt="">
+            <h2 class = "comph2_pw">비밀번호변경</h2>
             <div class = "compdiv">
-                <div class = "left_info">
+                <div class = "center_pw">
                     <div>
                         <label for="chPw_userpw" class="block whitefont bmargin"> 기존 비밀번호 </label>
-                        <input type="text" class="info_input whitefont" id="chPw_userpw" >
+                        <input type="password" class="info_input whitefont" id="chPw_userpw" >
                     </div>
                     <div>
                         <label for="chPw_new_userpw" class="block whitefont bmargin">새 비빌번호</label>
-                        <input type="text" class="info_input whitefont" id="chPw_new_userpw">
+                        <input type="password" class="info_input whitefont" id="chPw_new_userpw">
                     </div>
                     <div>
                         <label for="chPw_new_userpw_re" class="block whitefont bmargin">새 비밀번호 확인</label>
-                        <input type="text" class="info_input whitefont" id="chPw_new_userpw_re">
+                        <input type="password" class="info_input whitefont" id="chPw_new_userpw_re">
                     </div>
                 </div>
             </div>
-            <hr class="savr_hr">
             <div class="save_div">
-                <input type="button" class="saveBtn" value="변경" onclick="modifyInfo()" th:disabled="${loginType == 'kakao'} ? 'disabled'">
+                <input type="button" class="saveBtn able" value="변경" onclick="changepw()" th:disabled="${loginType == 'kakao'} ? 'disabled'">
             </div>
         </div>
     </div>

@@ -24,6 +24,7 @@ public class LoginApiController {
         String code = ck.keySet().toString().substring(1,2);
                 if(code.equals("3")){
             HttpSession session = httpServletRequest.getSession();
+            session.setAttribute("loginType","origin");
             session.setAttribute("memberId",ck.get(code).getId());
             session.setAttribute("userId",request.getData().getUserId());
             session.setAttribute("userPw",request.getData().getUserPw());

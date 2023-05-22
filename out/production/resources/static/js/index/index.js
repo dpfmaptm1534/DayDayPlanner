@@ -370,3 +370,93 @@
             }}
         )
     }
+
+    //비번변경
+
+
+    //유효성검사
+
+    function chkPW(){
+        const pw=document.getElementById('chPw_new_userpw').value;
+        const num = pw.search(/[0-9]/g);
+        const eng = pw.search(/[a-z]/ig);
+        const spe = pw.search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi);
+
+        if(pw.length < 10 || pw.length > 20){
+            alert('비밀번호는 10자리 ~ 20자리 이내로 입력해주세요');
+            return false;
+        }else if(pw.search(/\s/) != -1){
+            alert("비밀번호는 공백 없이 입력해주세요");
+            return false;
+        }else if( (num < 0 && eng < 0) || (eng < 0 && spe < 0) || (spe < 0 && num < 0) ){
+            alert("비밀번호는 영문,숫자, 특수문자 중 2가지 이상을 혼합하여 입력해주세요");
+            return false;
+        }else {
+
+            return true;
+        }
+    }
+    function changepw(){
+        const old_pw = document.getElementById('chPw_userpw');
+        const new_pw = document.getElementById('chPw_new_userpw');
+        const new_pw_re = document.getElementById('chPw_new_userpw_re');
+        if(old_pw.value==''){
+            alert('기존 비밀번호를 입력해주세요')
+            old_pw.focus();
+            return false;
+        }
+        if(new_pw.value==''){
+            alert('새 비밀번호를 입력해주세요')
+            new_pw.focus();
+            return false;
+        }
+        if(new_pw_re.value==''){
+            alert('새 비밀번호 확인을 입력해주세요')
+            new_pw_re.focus();
+            return false;
+        }
+
+        if(new_pw.value!=new_pw_re.value){
+            alert('새 비밀번호가 서로 일치하지 않습니다.')
+            new_pw_re.focus();
+            return false;
+        }
+        if(old_pw.value==new_pw.value){
+            alert('기존 비밀번호와 다르게 입력해주세요')
+            new_pw.focus();
+            return false;
+        }
+
+        if(!chkPW()){
+            return false;
+        }
+
+        fetch('/member/chpassword', {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                "data":{
+                    id:memberId.value,
+                    oldPw:old_pw.value,
+                    newPw:new_pw.value
+                }
+            }),
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                if (data.status == 'OK') {
+                    alert('변경완료');
+                    openMyinfo();
+                }else{
+                    if(data.description =='inconsistency') {
+                        alert('기존 비밀번호가 틀렸습니다');
+                        old_pw.focus();
+                    }else{
+                        alert('문제가 발생하였습니다')
+                    }
+                }
+            });
+
+
+
+    }

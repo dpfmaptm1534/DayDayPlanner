@@ -6,6 +6,7 @@ import com.example.demo.model.entity.Sheet;
 import com.example.demo.model.network.Header;
 import com.example.demo.model.network.request.BoardApiRequest;
 import com.example.demo.model.network.request.MemberApiRequest;
+import com.example.demo.model.network.request.PasswordApiRequest;
 import com.example.demo.model.network.request.SheetApiRequest;
 import com.example.demo.model.network.response.BoardApiResponse;
 import com.example.demo.model.network.response.MemberApiResponse;
@@ -38,6 +39,23 @@ public class MemberApiLogicService {
         MoneyMember newMember = member.get();
         newMember.setUserName(moneyMember.getUserName());
         return response(moneyMemberRepository.save(newMember));
+    }
+
+    public String chpassword(PasswordApiRequest request){
+        Optional<MoneyMember> member = moneyMemberRepository.findById(request.getId());
+        if(member.isPresent()){
+            MoneyMember updateMember = member.get();
+            if(updateMember.getUserPw().equals(request.getOldPw())){
+                updateMember.setUserPw(request.getNewPw());
+                moneyMemberRepository.save(updateMember);
+                return "success";
+            }else{
+                return "inconsistency";
+            }
+
+        }else{
+            return "nullid";
+        }
     }
 
 }

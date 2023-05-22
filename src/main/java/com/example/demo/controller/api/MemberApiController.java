@@ -4,6 +4,7 @@ import com.example.demo.model.entity.MoneyMember;
 import com.example.demo.model.network.Header;
 import com.example.demo.model.network.request.LoginApiRequest;
 import com.example.demo.model.network.request.MemberApiRequest;
+import com.example.demo.model.network.request.PasswordApiRequest;
 import com.example.demo.model.network.request.SheetApiRequest;
 import com.example.demo.model.network.response.MemberApiResponse;
 import com.example.demo.model.network.response.SheetApiResponse;
@@ -30,5 +31,15 @@ public class MemberApiController {
         session.setAttribute("userName",request.getUserName());
         return memberApiLogicService.modifyName(request);
     }
-
+    @PutMapping("/chpassword")
+    public Header<PasswordApiRequest> chpassword(@RequestBody Header<PasswordApiRequest> request){
+        String status = memberApiLogicService.chpassword(request.getData());
+        if(status.equals("success")){
+            return Header.OK(request.getData());
+        }else if(status.equals("inconsistency")){
+            return Header.ERROR("inconsistency");
+        }else{
+            return Header.ERROR("nonId");
+        }
+    }
 }

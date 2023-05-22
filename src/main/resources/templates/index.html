@@ -22,7 +22,7 @@
                     </button>
 
                 </div>
-                <img class='logo_img'src="/image/index/logo.png" alt="">
+                <img class='logo_img' onclick=location.reload() src="/image/index/logo.png" alt="">
                 <li>
 
                     <div class="userbox">
@@ -32,6 +32,7 @@
                         <div>
                             <p class="user_name"><b th:text="${userName}"></b> 님</p>
                             <input type="text" id="memberId" th:value="${memberId}">
+                            <input type="text" id="loginType" th:value="${loginType}">
                             <input type="text" id="accessToken" th:value="${accessToken}">
                         </div>
                     </div>
@@ -53,7 +54,7 @@
                     </button>
                 </div>
             </li>
-            <img class='logo_img'src="/image/index/logo.png" alt="">
+            <img class='logo_img' onclick=location.reload() src="/image/index/logo.png" alt="">
         </ul>
     <div>
         <button class='sheetbtn' onclick='deepCopy()'>

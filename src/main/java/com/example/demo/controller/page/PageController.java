@@ -5,6 +5,7 @@ import com.example.demo.model.entity.Sheet;
 import com.example.demo.model.repository.SheetRepository;
 import com.example.demo.service.BoardApiLogicService;
 import com.example.demo.service.KakaoLoginService;
+import com.example.demo.service.ProfileImageApiLogicService;
 import com.example.demo.service.SheetApiLogicService;
 import lombok.RequiredArgsConstructor;
 import org.apache.catalina.filters.ExpiresFilter;
@@ -36,6 +37,7 @@ public class PageController {
     private final BoardApiLogicService boardApiLogicService;
     private final SheetRepository sheetRepository;
     private final KakaoLoginService kakaoLoginService;
+    private final ProfileImageApiLogicService profileImageApiLogicService;
 
     @GetMapping("/")
     public String index(HttpServletRequest httpServletRequest) {
@@ -209,12 +211,16 @@ public class PageController {
         if(session.getAttribute("userId")==null){
             return "redirect:/login";
         }
-        String accessToken = (String)session.getAttribute("accessToken");
         String loginType = (String)session.getAttribute("loginType");
         String profileImage = (String)session.getAttribute("profileImage");
         String userId = (String)session.getAttribute("userId");
         String userName = (String)session.getAttribute("userName");
+        Long memberId = (Long)session.getAttribute("memberId");
 
+        String profile = profileImageApiLogicService.searchid(memberId);
+
+        map.addAttribute("profile",profile);
+        map.addAttribute("memberId",memberId);
         map.addAttribute("loginType",loginType);
         map.addAttribute("profileImage",profileImage);
         map.addAttribute("userId",userId);

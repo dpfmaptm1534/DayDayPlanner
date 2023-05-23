@@ -24,11 +24,18 @@
                                 <div class="right_info_div">
                                     <div class="profilePopupDiv">
                                         <ul class="profilePopupUl">
-                                            <li th:attr="class=${profileImage=='/image/index/defaultProfileImg.jpeg' ? 'profilePopupLi set' : 'profilePopupLi'}">
+                                            <li th:attr="class=${profileImage=='/image/index/defaultProfileImg.jpeg' ? 'profilePopupLi set' : 'profilePopupLi'}"
+                                                onclick="setDefaultProfile()" id="defaultProfileImage">
                                                 <img  src="/image/index/defaultProfileImg.jpeg" class="profilePopupLi_img" alt=""> <span>기본프로필</span></li>
-                                            <li class="profilePopupLi"><img class="profilePopupLi_img" src="/image/index/defaultProfileImg.jpeg" alt=""> <span>나의프로필</span></li>
+                                            <li th:attr="class=${profile!=null ? (profileImage!='/image/index/defaultProfileImg.jpeg'?'profilePopupLi set':'profilePopupLi'):'profilePopupLi none'}" onclick="setMyProfile()" id="myProfileImage"><img class="profilePopupLi_img" th:src="${profile}" alt="" > <span>나의프로필</span></li>
                                             <hr>
-                                            <li class="profilePopupLi">사진업로드</li>
+                                            <li class="profilePopupLi" onclick="openUploadImg()">
+                                                사진업로드
+                                                <form id="uploadForm">
+                                                    <input type="file" onchange="uploadImg()" name="file" id="uploadInput"/>
+                                                    <input type="text" name="memberId" th:value="${memberId}"/>
+                                                </form>
+                                                </li>
                                         </ul>
                                     </div>
                                     <span class="userInfo_ImgText" onclick="openProfileChange()">

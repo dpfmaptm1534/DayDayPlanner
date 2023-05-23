@@ -12,6 +12,12 @@ spring:
   data.rest:
     base-path: /api
     detection-strategy: annotated
+
+  servlet:
+    multipart:
+      maxFileSize: 10MB
+      maxRequestSize: 20MB
+
   devtools:
     livereload:
       enabled: true
@@ -19,6 +25,8 @@ spring:
       cache: false
     restart:
       enabled: true
+
+
 
 server:
   port: 7080

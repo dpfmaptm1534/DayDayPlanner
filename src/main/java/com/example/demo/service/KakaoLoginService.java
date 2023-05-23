@@ -2,14 +2,10 @@ package com.example.demo.service;
 
 import com.example.demo.ifs.IKakaoLoginService;
 import com.example.demo.model.entity.MoneyMember;
-import com.example.demo.model.network.Header;
-import com.example.demo.model.network.request.RegisterApiRequest;
-import com.example.demo.model.network.response.RegisterApiResponse;
 import com.example.demo.model.repository.MoneyMemberRepository;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.*;

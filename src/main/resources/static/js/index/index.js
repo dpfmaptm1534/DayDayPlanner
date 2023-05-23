@@ -371,11 +371,10 @@
         )
     }
 
-    //비번변경
+
 
 
     //유효성검사
-
     function chkPW(){
         const pw=document.getElementById('chPw_new_userpw').value;
         const num = pw.search(/[0-9]/g);
@@ -396,6 +395,8 @@
             return true;
         }
     }
+
+    //비번변경
     function changepw(){
         const old_pw = document.getElementById('chPw_userpw');
         const new_pw = document.getElementById('chPw_new_userpw');
@@ -456,7 +457,71 @@
                     }
                 }
             });
+    }
 
+    //첨부파일선택창 열기
+    function openUploadImg(){
+        //$('#uploadInput').click(); ->Maxmum call stack size exceeded 에러
+        $('#uploadInput').get(0).click();
+    }
+    //기본프로필로설정
+    function setDefaultProfile(){
+        $.ajax({
+            type : 'GET',           // 타입 (get, post, put 등등)
+            url : '/profileapi/default/'+memberId.value,           // 요청할 서버url
+            async:false,
+            success : function() { // 결과 성공 콜백함수
+                $('#myProfileImage').removeClass('set');
+                $('#defaultProfileImage').addClass('set');
+                $('#profile_pic_img').attr('src','/image/index/defaultProfileImg.jpeg');
+                $('#userInfo_profileImage').attr('src','/image/index/defaultProfileImg.jpeg')
+            }}
+        )
+    }
+    function setMyProfile(){
+        $.ajax({
+            type : 'GET',           // 타입 (get, post, put 등등)
+            url : '/profileapi/myprofile/'+memberId.value,           // 요청할 서버url
+            async:false,
+            success : function() { // 결과 성공 콜백함수
+                $('#defaultProfileImage').removeClass('set');
+                $('#myProfileImage').addClass('set');
+                $('#profile_pic_img').attr('src',$('#myProfileImage>.profilePopupLi_img').attr('src'));
+                $('#userInfo_profileImage').attr('src',$('#myProfileImage>.profilePopupLi_img').attr('src'));
+            }}
+        )
+    }
 
+    //나의프로필등록
+    function uploadImg(){
+        let form = $('#uploadForm')[0];
+        let formData = new FormData(form);
+        let fileName = $('#uploadInput').val()
+        fileName = fileName.slice(fileName.indexOf(".")+1).toLowerCase();
+        if(fileName != "jpg" && fileName != "png" && fileName != "jpeg" && fileName != "gif" && fileName != "bmp"){
+            alert("이미지파일만 업로드 가능합니다.");
+            return false;
+        }
+        //contentType과 processData 옵션 모두 false로 넣어줘야만 잘 동작한다.
+        // 이게 없으면 오류가 발생하면서 서버에 제대로 안 날아감
+        // - contentType : false 로 선언 시 content-type 헤더가 multipart/form-data로 전송되게 함
+        // - processData : false로 선언 시 formData를 string으로 변환하지 않음
+
+        $.ajax({
+            url : '/profileapi',
+            type : 'POST',
+            data : formData,
+            contentType : false,
+            processData : false,
+            success: function(result) {
+                $('#myProfileImage').removeClass('none');
+                console.log(result.data.profileImageDirectory)
+                $('#myProfileImage>.profilePopupLi_img').attr('src',result.data.profileImageDirectory);
+                setMyProfile();
+            },
+            error: function(r) {
+                console.log('error');
+            }
+        })
 
     }

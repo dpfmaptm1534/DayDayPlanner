@@ -10,6 +10,6 @@ public class fileConfig implements WebMvcConfigurer {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/profile/**")
-                .addResourceLocations("file:///Users/jaewon/Desktop/profile/");
+                .addResourceLocations("file:///home/ubuntu/profile/");
     }
 }

@@ -61,7 +61,7 @@ public class ProfileImageApiLogicService{
     public Header<ProfileImageApiResponse> create(MultipartFile file,Long memberId) throws IOException {
         String fileExtension = file.getOriginalFilename().split("[.]")[1];
         String pdir = "profile";
-        String dir = "/Users/jaewon/Desktop/";
+        String dir = "/home/ubuntu/";
         String sdir = dir+pdir;
 
         String serverPath=null;

@@ -87,7 +87,7 @@ public class PageController {
             session.setAttribute("userName",userInfo.get("userName"));
             session.setAttribute("profileImage",userInfo.get("profileImage"));
         }
-        return "redirect:/main";
+        return "main";
     }
 
     @GetMapping("main")

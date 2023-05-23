@@ -18,16 +18,6 @@ spring:
       maxFileSize: 10MB
       maxRequestSize: 20MB
 
-  devtools:
-    livereload:
-      enabled: true
-    thymeleaf:
-      cache: false
-    restart:
-      enabled: true
-
-
-
 server:
   port: 7080
 

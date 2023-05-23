@@ -87,7 +87,7 @@ public class PageController {
             session.setAttribute("userName",userInfo.get("userName"));
             session.setAttribute("profileImage",userInfo.get("profileImage"));
         }
-        return "main";
+        return "redirect:http://13.124.130.62:7080/main";
     }
 
     @GetMapping("main")

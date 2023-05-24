@@ -62,7 +62,7 @@ public class PageController {
     }
 
     @GetMapping("kakaoLogin")
-    public String main(HttpServletRequest httpServletRequest, ModelMap map,@RequestParam(value = "code", required = false) String code){
+    public String kakao(HttpServletRequest httpServletRequest, ModelMap map,@RequestParam(value = "code", required = false) String code){
         HttpSession session = httpServletRequest.getSession();
         HashMap<String, Object> userInfo = new HashMap<>();
         String tk="";

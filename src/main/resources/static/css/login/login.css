@@ -15,7 +15,7 @@
     }
 
     .doc_main{
-        margin-top: 25px;
+        margin-top: 3%;
         display: flex;
         justify-content: center;
     }
@@ -156,7 +156,7 @@
         }
 
         .doc_main{
-            margin-top: 10px;
+            margin-top: 3%;
             display: flex;
             justify-content: center;
         }
@@ -278,7 +278,7 @@
     }
 
     .doc_main{
-        margin-top: 25px;
+        margin-top: 3%;
         display: flex;
         justify-content: center;
     }

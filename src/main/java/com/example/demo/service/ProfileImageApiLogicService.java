@@ -18,6 +18,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.time.LocalDateTime;
 import java.util.Optional;
 
 @Service
@@ -63,12 +64,13 @@ public class ProfileImageApiLogicService{
         String pdir = "profile";
         String dir = "/home/ubuntu/";
         String sdir = dir+pdir;
+        String timeInfo = "-" + LocalDateTime.now().toString();
 
         String serverPath=null;
         String fullPath=null;
         if (!file.isEmpty()) {
-            serverPath = pdir+"/" + memberId+"."+fileExtension;
-            fullPath = sdir + "/" + memberId+"."+fileExtension;
+            serverPath = pdir+"/" + memberId+timeInfo+"."+fileExtension;
+            fullPath = sdir + "/" + memberId+timeInfo+"."+fileExtension;
 
         }
         MoneyMember moneyMember = moneyMemberRepository.findById(memberId).get();

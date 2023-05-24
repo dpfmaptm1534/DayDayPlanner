@@ -127,11 +127,14 @@ public class KakaoLoginService  implements IKakaoLoginService {
                 // System.out.println(kakao_account.get("email"));
 
                 String nickname = properties.get("nickname").toString();
-                String userId = jsonMap.get("id").toString();
+                String userId = jsonMap.get("id").toString(); //카카오로그인유저의 id로 사용할 예정
                 String profileImage = properties.get("profile_image").toString();
+
+                //이런 회원이 있는지 조회
                 Optional<MoneyMember> mem = moneyMemberRepository.findByUserId(userId);
 
-                if(mem.isEmpty()){
+                if(mem.isEmpty()){ // 아이디가 DB에 존재하지않은 경우(즉, 회원이 아닐경우)
+                    //회원등록시키고 멤버정보를 담아 보냄
                     MoneyMember moneyMember = MoneyMember.builder()
                             .userId(userId)
                             .userPw(userId+"kakao")
@@ -140,7 +143,7 @@ public class KakaoLoginService  implements IKakaoLoginService {
                             .build();
                     MoneyMember newMoneyMember = moneyMemberRepository.save(moneyMember);
                     userInfo.put("memberId",newMoneyMember.getId());
-                }else{
+                }else{ //아이디가 존재할경우 그대로 멤버정보를 담아 보냄
                     userInfo.put("memberId",mem.get().getId());
                 }
                 userInfo.put("userId",userId);

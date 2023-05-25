@@ -51,9 +51,4 @@ public class ProfileImageApiController {
         session.setAttribute("profileImage",myprofile);
         return myprofile;
     }
-
-
-
-
-
 }

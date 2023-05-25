@@ -478,6 +478,7 @@
             }}
         )
     }
+    //나의프로필로설정
     function setMyProfile(){
         $.ajax({
             type : 'GET',           // 타입 (get, post, put 등등)
@@ -502,11 +503,11 @@
             alert("이미지파일만 업로드 가능합니다.");
             return false;
         }
+
         //contentType과 processData 옵션 모두 false로 넣어줘야만 잘 동작한다.
         // 이게 없으면 오류가 발생하면서 서버에 제대로 안 날아감
         // - contentType : false 로 선언 시 content-type 헤더가 multipart/form-data로 전송되게 함
         // - processData : false로 선언 시 formData를 string으로 변환하지 않음
-
         $.ajax({
             url : '/profileapi',
             type : 'POST',
@@ -523,5 +524,4 @@
                 console.log('error');
             }
         })
-
     }

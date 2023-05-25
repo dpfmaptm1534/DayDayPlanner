@@ -140,7 +140,9 @@
         display: flex;
         flex-direction: column;
     }
-
+    #idSaveCheck{
+        margin-right:5px;
+    }
 
     @media (max-width: 900px){
 

@@ -87,7 +87,6 @@
     <div id=dark onclick="dark()"></div>
     <div class="content_box" >
         <div th:replace="${#lists.isEmpty(sheetList)} ? ~{defaultPage :: content_box} : ~{content::content_box}">
-
         </div>
     </div>
 </div>

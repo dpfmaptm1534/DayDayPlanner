@@ -28,44 +28,35 @@ function login(){
 }
 
 $(document).ready(function(){
-
-
     var key = getCookie("key");
     $("#userId").val(key);
-
     if($("#userId").val() != ""){
         $("#idSaveCheck").attr("checked", true);
     }
-
     $("#idSaveCheck").change(function(){
         if($("#idSaveCheck").is(":checked")){
-            setCookie("key", $("#userId").val(), 7);
+            setCookie("key", $("#userId").val(), 7);//7일간 보관
         }else{
             deleteCookie("key");
         }
     });
-
-
     $("#userId").keyup(function(){
         if($("#idSaveCheck").is(":checked")){
-            setCookie("key", $("#userId").val(), 7);
+            setCookie("key", $("#userId").val(), 7);//7일간 보관
         }
     });
 });
-
 function setCookie(cookieName, value, exdays){
     var exdate = new Date();
     exdate.setDate(exdate.getDate() + exdays);
     var cookieValue = escape(value) + ((exdays==null) ? "" : "; expires=" + exdate.toGMTString());
     document.cookie = cookieName + "=" + cookieValue;
 }
-
 function deleteCookie(cookieName){
     var expireDate = new Date();
     expireDate.setDate(expireDate.getDate() - 1);
     document.cookie = cookieName + "= " + "; expires=" + expireDate.toGMTString();
 }
-
 function getCookie(cookieName) {
     cookieName = cookieName + '=';
     var cookieData = document.cookie;

@@ -15,7 +15,7 @@
 ## 📌 주요 기능
 - 로그인 & 로그아웃
 - 쿠키를 이용한 아이디저장
-- 카카오 간편로그인
+- OAuth2 카카오 간편로그인
 - 회원가입
 - 비밀번호 변경
 - 프로필이미지 등록 및 변경
@@ -34,6 +34,7 @@
 - Thymeleaf
 - JPA
 - AWS EC2
+- OAuth2
 
 ## 📌 ERD
 ![스크린샷 2023-05-27 오후 4 49 52](https://github.com/dpfmaptm1534/DayDayPlanner/assets/75537734/7791bbdc-2c0f-46ee-8e4d-815f4ce8afea)
